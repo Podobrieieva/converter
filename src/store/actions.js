@@ -2,7 +2,7 @@ import EventService from '../services/eventService';
 
 export default {
   getData({
-    commit
+    commit,
   }, currency) {
     return EventService.getEvents(currency)
       .then(({
@@ -12,5 +12,14 @@ export default {
           [data.target]: data.rates,
         });
       })
+      .catch(error => {
+        console.log(error);
+        const notification = {
+          type: 'error',
+          message: `There was a problem fetching events: ${error}`
+        }
+
+        commit('addError', notification);
+      });
   },
 }

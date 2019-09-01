@@ -3,4 +3,5 @@ export default {
   USD: {},
   RUB: {},
   isLoading: false,
+  notifications: [],
 };

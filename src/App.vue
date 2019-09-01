@@ -27,6 +27,7 @@
       v-if="formFields.amount !== null && formFields.amount !== ''"
       class="main-page__selected"
     >{{ resultInfo }}</div>
+    <NotificationContainer />
   </div>
 </template>
 
@@ -39,6 +40,7 @@ import UIMixin from "./mixins/UIMixin";
 import createForm from "./models/formField";
 import CardInfo from "./components/CardInfo";
 import ButtonCurrency from "./components/ButtonCurrency";
+import NotificationContainer from "./components/NotificationContainer";
 
 export default {
   name: "App",
@@ -51,7 +53,8 @@ export default {
 
   components: {
     CardInfo,
-    ButtonCurrency
+    ButtonCurrency,
+    NotificationContainer
   },
 
   data: () => ({

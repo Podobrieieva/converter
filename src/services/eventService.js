@@ -1,13 +1,11 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  // baseURL: `https://rest.coinapi.io/v1/assets`,
-  baseURL: `http://api.coinlayer.com/api`,
+  baseURL: 'http://api.coinlayer.com/api',
   withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    // 'X-CoinAPI-Key': 'EB8855A5-FB0A-40B8-87D9-8A5B8C5A11D1',
   },
   timeout: 10000
 });
