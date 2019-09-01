@@ -1,0 +1,1 @@
+export const CRYPTOCURRENCIES = ['BTC', 'ETH', 'XRP'];
