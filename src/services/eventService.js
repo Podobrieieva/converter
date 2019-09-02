@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'https://api.coinlayer.com/api',
+  baseURL: 'http://api.coinlayer.com/api',
   withCredentials: false, // This is the default
   headers: {
     Accept: 'application/json',
