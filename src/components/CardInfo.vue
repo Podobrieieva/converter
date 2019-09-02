@@ -1,20 +1,28 @@
 <template>
-  <div
-    class="card-info"
-    :class="{ 'active' : active }"
-    @click="$emit('choose-card', cryptoCurrency.name)"
-  >
-    <div class="card-info__title">
-      <img :src="getImage()" :alt="cryptoCurrency.name" />
-      <div>{{ cryptoCurrency.name }}</div>
-    </div>
-    <div class="card-info__info">
-      <div v-for="(value, name) in cryptoCurrency.values" :key="name">
-        <span>{{ name }}:</span>
-        {{ value }}
-      </div>
-    </div>
-  </div>
+  <md-card md-with-hover>
+    <md-ripple>
+      <md-card-header>
+        <md-card-header-text>
+          <div
+            v-for="(value, name) in cryptoCurrency.values"
+            :key="name"
+            class="md-title"
+          >{{ name }}: {{ value }}</div>
+        </md-card-header-text>
+
+        <md-card-media md-medium>
+          <img :src="getImage()" :alt="cryptoCurrency.name" />
+        </md-card-media>
+      </md-card-header>
+      <md-card-actions>
+        <md-button
+          class="card-info__button"
+          :class="[active ? 'md-accent' :'md-primary']"
+          @click="$emit('choose-card', cryptoCurrency.name)"
+        >{{ active ? 'Selected' : 'Choose' }}</md-button>
+      </md-card-actions>
+    </md-ripple>
+  </md-card>
 </template>
 
 <script>
@@ -49,6 +57,9 @@ export default {
   cursor: pointer;
 }
 
+.md__button {
+  height: 250px;
+}
 .card-info:hover {
   background-color: aqua;
 }
@@ -62,4 +73,3 @@ export default {
   flex-direction: column;
 }
 </style>
-

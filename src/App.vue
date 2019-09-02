@@ -10,8 +10,7 @@
       />
     </div>
     <div class="main-page__selected">Selected coin: {{ currentCrypto }}</div>
-    <div>
-      Volume:
+    <div class="main-page__input">
       <input v-model="formFields.amount" type="text" v-mask="'#########'" @input="calculate" />
     </div>
     <div class="main-page__buttons">
@@ -25,7 +24,7 @@
     </div>
     <div
       v-if="formFields.amount !== null && formFields.amount !== ''"
-      class="main-page__selected"
+      class="main-page__selected md-title"
     >{{ resultInfo }}</div>
     <NotificationContainer />
   </div>
@@ -125,18 +124,34 @@ export default {
 
 <style>
 .main-page {
-  background-color: rgb(208, 211, 218);
+  margin: 50px;
 }
 
 .main-page__list,
 .main-page__buttons {
   display: flex;
-  justify-content: space-around;
   width: 100%;
+  margin: 20px;
+}
+
+.main-page__list {
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.main-page__buttons {
+  justify-content: center;
 }
 
 .main-page__selected {
+  font-size: 24px;
+  color: rgb(59, 148, 216);
+}
+
+.main-page__input,
+.main-page__selected {
   display: flex;
   justify-content: center;
+  margin: 20px;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <button
-    type="button"
-    :class="{ 'active' : active }"
+  <md-button
+    class="md-raised"
+    :class="[active ? 'md-accent' :'md-primary']"
     @click="$emit('choose-currency', false, currencyName)"
-  >{{ currencyName }}</button>
+  >{{ currencyName }}</md-button>
 </template>
 
 <script>
@@ -23,16 +23,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.button-currency {
-  display: flex;
-  min-width: 200px;
-  border: 1px solid blue;
-  cursor: pointer;
-}
-
-.active {
-  background-color: blueviolet;
-}
-</style>
