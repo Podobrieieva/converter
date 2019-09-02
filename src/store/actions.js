@@ -6,18 +6,26 @@ export default {
   }, currency) {
     return EventService.getEvents(currency)
       .then(({
-        data
+        data,
       }) => {
-        commit('updateState', {
-          [data.target]: data.rates,
-        });
+        if (data.success) {
+          commit('updateState', {
+            [data.target]: data.rates,
+          });
+        } else {
+          const notification = {
+            type: 'error',
+            message: `There was a problem fetching events: ${data.error.info}`
+          };
+
+          commit('addError', notification);
+        }
       })
       .catch(error => {
-        console.log(error);
         const notification = {
           type: 'error',
           message: `There was a problem fetching events: ${error}`
-        }
+        };
 
         commit('addError', notification);
       });

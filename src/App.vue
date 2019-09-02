@@ -98,7 +98,7 @@ export default {
     NProgress.start();
     this.updateState({ isLoading: true });
     this.$options.currencies.forEach((currency, index) => {
-      this.getData(currency).then(() => {
+      this.getData(currency).finally(() => {
         if (index === this.$options.currencies.length - 1) {
           this.updateState({ isLoading: false });
           NProgress.done();
